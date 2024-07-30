@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Cleaning Service</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5dbd7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            height: 100%;
+            background-color: #ff0000;
+            border: 2px solid #000;
+            border-radius: 15px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            box-sizing: border-box;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow-y: auto;
+        }
+        .header {
+            background-color: #252525;
+            color: #ebebeb;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+            text-transform: capitalize;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .navbar a {
+            color: #000;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+        .services, .about {
+            margin: 20px 0;
+            background-color: #fcfcfc;
+            border-radius: 24px;
+            padding: 24px;
+        }
+        .services h2, .about h2 {
+            margin: 10px 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .services .service-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            font-size: 18px;
+            color: #333;
+        }
+        .service-list div {
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .contact {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .contact a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .contact a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            font-size: 16px;
+            color: #ffffff;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #333; 
+            border-radius: 10px;
+            text-align: center;
+        }
+        .footer .schedule {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .footer .schedule h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .footer .contact-info {
+            font-size: 14px;
+        }
+        .footer .contact-info h4 {
+            margin: 10px 0 5px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .footer .contact-info p {
+            margin: 5px 0;
+        }
+        .image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .stars {
+            color: gold;
+            font-size: 24px;
+        }
+        .hidden {
+            display: none;
+        }
+        .map-container {
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+        }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Shaiba Q Cleaning Service</h1>
+            <div class="stars">⭐ ⭐ ⭐ ⭐ ⭐ ⭐</div>
+        </div>
+        <div class="navbar">
+            <a href="#services" onclick="showSection('services')">Services</a>
+            <a href="#about" onclick="showSection('about')">About</a>
+            <a href="register.html">Register</a>
+        </div>
+        <div id="services" class="services">
+            <h2>Our Services</h2>
+            <div class="service-list">
+                <div onclick="showDescription('House Cleaning', 'We offer thorough house cleaning services to keep your home spotless and comfortable.')">• House Cleaning</div>
+                <div onclick="showDescription('Nanny/Caregiver', 'Our professional nannies and caregivers are here to assist with childcare and elderly care.')">• Nanny/Caregiver</div>
+                <div onclick="showDescription('Washing/Ironing', 'We provide washing and ironing services to keep your clothes fresh and wrinkle-free.')">• Washing/Ironing (Laundry)</div>
+                <div onclick="showDescription('Food Preparation', 'Our team can help with meal planning and preparation to ensure you always have delicious, healthy meals.')">• Food Preparation</div>
+                <div onclick="showDescription('Kitchen Cleaning', 'We offer detailed kitchen cleaning services, including appliance cleaning, to keep your kitchen spotless.')">• Kitchen Cleaning</div>
+            </div>
+        </div>
+        <img src="pexels-photo-6195125 (1).jpg" alt="Cleaning Service" class="image">
+        <div id="about" class="about hidden">
+            <h2>About Us</h2>
+            <p>Welcome to Shaiba Q Cleaning Service! We are dedicated to providing top-notch cleaning solutions that cater to your specific needs. Our team is made up of skilled professionals who are committed to excellence and customer satisfaction.</p>
+            <p>We understand the importance of maintaining a clean and healthy environment. That's why we use only the best eco-friendly products and modern techniques to ensure that your home or office is spotless and safe.</p>
+            <p>With years of experience in the industry, we have developed a reputation for reliability and efficiency. Our services are designed to save you time and effort, allowing you to focus on what matters most to you.</p>
+            <p>Whether you need a one-time deep clean or regular maintenance, we are here to help. Our flexible scheduling and customized service plans are tailored to fit your needs and preferences.</p>
+            <p>Contact us today to learn more about how we can assist you in maintaining a pristine environment. We look forward to serving you!</p>
+        </div>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224783.80707481442!2d46.642451!3d24.774265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f05a68c7bcd7b%3A0xa7e2567a6a4ef!2sRiyadh%2C%20Saudi%20Arabia!5e0!3m2!1sen!2sus!4v1624004539531!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="footer">
+            <div class="contact-info">
+                <h4>About Shaiba Q Cleaning Service</h4>
+                <p>Shaiba Q Cleaning Service is committed to providing high-quality cleaning solutions tailored to meet your needs.</p>
+                
+                <h4>Trust</h4>
+                <p>We use eco-friendly products and employ experienced professionals to ensure your satisfaction and safety.</p>
+                
+                <h4>Work</h4>
+                <p>Our dedicated team delivers meticulous cleaning services with attention to detail and reliability.</p>
+                
+                <p>Contact us, we are ready to serve you</p>
+                <p style="color: #ff0000;">📞 <a href="tel:+966548315652" style="color: #ffffff;"><b>+966548315652</b></a></p>
+                <p>Riyadh, Saudi Arabia</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            document.getElementById('services').classList.add('hidden');
+            document.getElementById('about').classList.add('hidden');
+
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+
+        function showDescription(title, description) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDescription').innerText = description;
+            document.getElementById('myModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('myModal')) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
